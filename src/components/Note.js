@@ -45,14 +45,17 @@ function Note({ note, toggleFavorite, deleteNote, editNote }) {
                 <FaPalette className='palette' onClick={() => setShowColorPicker(!showColorPicker)} />
                 {showColorPicker && (
                     <div className="color-picker">
-                        {['#ffffff', '#f28b82', '#fbbc04', '#fff475', '#ccff90', '#a7ffeb', '#cbf0f8'].map(color => (
-                            <div
-                                key={color}
-                                className="color-swatch"
-                                style={{ backgroundColor: color }}
-                                onClick={() => handleColorChange(color)}
-                            />
-                        ))}
+                        {[
+                            '#BAE2FF', '#B9FFDD', '#FFE8AC',
+                            '#FFCAB9', '#F99494', '#9DD6FF', '#ECA1FF',
+                            '#DAFF8B', '#FFA285', '#CDCDCD', '#979797', '#A99A7C'].map(color => (
+                                <div
+                                    key={color}
+                                    className="color-swatch"
+                                    style={{ backgroundColor: color }}
+                                    onClick={() => handleColorChange(color)}
+                                />
+                            ))}
                     </div>
                 )}
                 <FaTimes className='remove' onClick={() => deleteNote(note.id)} />
