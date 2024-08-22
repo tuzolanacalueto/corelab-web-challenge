@@ -28,10 +28,16 @@
     margin-left: 3px;
     height: 13.5px;
     margin-top: 2px;
+    cursor: pointer;
+}
+
+.edit {
+    cursor: pointer;
 }
 
 .remove {
     margin-left: 300px;
+    cursor: pointer;
 }
 
 .star-icon {
@@ -49,13 +55,18 @@
     position: absolute;
     top: 10px;
     background-color: #fff;
-    padding: 10px 10px;
-    border-radius: 5px;
+    padding-left: 10px;
+    border-radius: 9px;
+    width: 574.61px;
+    height: 46.46px;
+    border: 1px;
+
 }
 
 .color-swatch {
-    width: 30px;
-    height: 30px;
+    width: 36.71px;
+    height: 36.71px;
     border-radius: 50%;
     cursor: pointer;
+    margin-top: 5px;
 }
