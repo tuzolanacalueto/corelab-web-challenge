@@ -7,3 +7,7 @@
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.note-list h5 {
+    font-weight: normal;
+}
