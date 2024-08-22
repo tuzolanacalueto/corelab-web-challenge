@@ -1,0 +1,9 @@
+.note-list {
+    padding: 105px 105px;
+}
+
+.notes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
