@@ -11,12 +11,14 @@
 .header input {
     width: 530.17px;
     height: 28px;
-    margin-top: 6px;
+    border: none;
+    padding: 10px;
 }
 
 .header h4 {
     margin-top: 6px;
     margin-right: 20px;
+    font-weight: normal;
 }
 
 .logo {
@@ -34,4 +36,35 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+input:focus {
+    border: none;
+    /* Remove a borda */
+    box-shadow: 0 0 0 1px transparent;
+    /* Garante que o layout permaneça consistente */
+}
+
+.search {
+    border: solid 1px #000;
+    height: 35px;
+    margin-top: 6px;
+    padding-right: 5px;
+    padding-top: 4px;
+    border: #ccc solid 1px;
+    border-radius: 3px;
+}
+
+input {
+
+    outline: none;
+    /* Remove a borda padrão do navegador */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    /* Suaviza a transição */
+}
+
+.faSearch {
+    margin-left: 4px;
+    color: #ccc;
+    cursor: pointer;
 }
