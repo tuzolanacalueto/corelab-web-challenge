@@ -7,9 +7,9 @@ import { todo } from './services/todo'; // Ajuste o caminho conforme necessário
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(''); // Novo estado de pesquisa
 
   useEffect(() => {
-    // Carregar as notas do backend ao montar o componente
     const fetchNotes = async () => {
       const response = await todo.listar();
       if (response.status === 200) {
@@ -58,11 +58,22 @@ function App() {
     }
   };
 
+  // Filtrar notas com base no termo de pesquisa
+  const filteredNotes = notes.filter(note =>
+    note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    note.content.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="app-container">
-      <Header />
+      <Header setSearchTerm={setSearchTerm} /> {/* Passa a função de pesquisa */}
       <NoteForm addNote={addNote} />
-      <NoteList notes={notes} toggleFavorite={toggleFavorite} deleteNote={deleteNote} editNote={editNote} />
+      <NoteList
+        notes={filteredNotes}
+        toggleFavorite={toggleFavorite}
+        deleteNote={deleteNote}
+        editNote={editNote}
+      />
     </div>
   );
 }
