@@ -35,6 +35,22 @@
     cursor: pointer;
 }
 
+.edit-content {
+    width: 350px;
+    height: 300px;
+    background-color: inherit;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 3px;
+    resize: none;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-content:focus {
+    border: none;
+}
+
 .remove {
     margin-left: 300px;
     cursor: pointer;
@@ -46,6 +62,19 @@
 
 .favorite {
     color: gold;
+}
+
+.salvar {
+    position: relative;
+    bottom: 290px;
+    padding: 5px 5px;
+    background-color: inherit;
+    border-radius: 3px;
+
+}
+
+.salvar:focus {
+    border: none;
 }
 
 .color-picker {
