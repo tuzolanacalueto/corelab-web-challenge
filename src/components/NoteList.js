@@ -3,8 +3,8 @@ import Note from './Note';
 import '../styles/NoteList.css';
 
 function NoteList({ notes, toggleFavorite, deleteNote, editNote }) {
-    const favoriteNotes = notes.filter(note => note.favorite);
-    const otherNotes = notes.filter(note => !note.favorite);
+    const favoriteNotes = notes.filter(note => note.isFavorite);
+    const otherNotes = notes.filter(note => !note.isFavorite);
 
     return (
         <div className="note-list">
