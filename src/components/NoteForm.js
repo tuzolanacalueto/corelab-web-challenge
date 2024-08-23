@@ -6,12 +6,10 @@ function NoteForm({ addNote }) {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [error, setError] = useState(false);
-    let [favorite, setFavorite] = useState(false);
+    const [favorite, setFavorite] = useState(false);
 
     const handleKeyDown = (e) => {
-
         if (e.key === 'Enter') {
-
             e.preventDefault(); // Impede o comportamento padrão de nova linha ou envio
             if (!title || !content) {
                 setError(true);
@@ -22,15 +20,15 @@ function NoteForm({ addNote }) {
                 id: Date.now(),
                 title,
                 content,
-                favorite: false,
+                isFavorite: favorite, // Certifique-se de usar a propriedade `isFavorite`
                 color: 'white',
             });
 
             setTitle('');
             setContent('');
+            setFavorite(false);
             setError(false);
         }
-
     };
 
     return (
@@ -49,7 +47,8 @@ function NoteForm({ addNote }) {
                     onClick={() => setFavorite(!favorite)}
                 />
                 <hr />
-                <input className='textarea'
+                <input
+                    className='textarea'
                     placeholder="Criar nota..."
                     value={content}
                     type='text'
@@ -57,9 +56,7 @@ function NoteForm({ addNote }) {
                     onKeyDown={handleKeyDown}
                 />
             </div>
-
             {error && <p className="error">Preencha todos os campos</p>}
-
         </form>
     );
 }
