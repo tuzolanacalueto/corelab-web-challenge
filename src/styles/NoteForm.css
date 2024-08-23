@@ -1,14 +1,18 @@
 @media (max-width: 768px) {
 
     .note-form div,
-    .input,
     .textarea {
         max-width: 100%;
+    }
+
+    .input {
+        max-width: 95%;
     }
 
     .add-note-btn {
         max-width: 100%;
     }
+
 }
 
 .note-form {
