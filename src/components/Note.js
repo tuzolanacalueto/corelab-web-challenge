@@ -26,12 +26,13 @@ function Note({ note, toggleFavorite, deleteNote, editNote }) {
             <div className="note-header">
                 <h3>{note.title}</h3>
                 <FaStar
-                    className={`star-icon ${note.favorite ? 'favorite' : ''}`}
+                    className={`star-icon ${note.isFavorite ? 'favorite' : ''}`}
                     onClick={() => toggleFavorite(note.id)}
                 />
             </div>
             {isEditing ? (
                 <textarea
+                    className='edit-content'
                     value={newContent}
                     onChange={(e) => setNewContent(e.target.value)}
                 />
@@ -41,7 +42,7 @@ function Note({ note, toggleFavorite, deleteNote, editNote }) {
 
             <div className="note-footer">
                 <FaEdit className='edit' onClick={handleEdit} />
-                {isEditing ? <button onClick={handleSave}>Salvar</button> : null}
+                {isEditing ? <button className='salvar' onClick={handleSave}>Salvar</button> : null}
                 <FaPalette className='palette' onClick={() => setShowColorPicker(!showColorPicker)} />
                 {showColorPicker && (
                     <div className="color-picker">
