@@ -2,7 +2,7 @@ import { axiosInstance } from "../../api/axios";
 
 async function create(formData) {
   try {
-    const response = await axiosInstance.post("todos", formData);
+    const response = await axiosInstance.post("todos/", formData);
 
     return response;
   } catch (error) {
@@ -42,7 +42,7 @@ async function getOne(id) {
 
 async function listar() {
   try {
-    const response = await axiosInstance.get("todos");
+    const response = await axiosInstance.get("todos/");
 
     return response;
   } catch (error) {
