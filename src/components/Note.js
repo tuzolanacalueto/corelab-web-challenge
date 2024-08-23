@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Note.css';
-import { FaStar, FaTrash, FaEdit, FaPalette, FaTimes } from 'react-icons/fa';
+import { FaStar, FaEdit, FaPalette, FaTimes } from 'react-icons/fa';
 
 function Note({ note, toggleFavorite, deleteNote, editNote }) {
     const [isEditing, setIsEditing] = useState(false);
