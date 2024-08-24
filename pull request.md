@@ -87,16 +87,24 @@ Backend: Um contêiner Docker foi configurado para rodar a aplicação NestJS, e
 Frontend: Outro contêiner Docker foi configurado para rodar a aplicação React, garantindo que a UI seja servida em um ambiente isolado e consistente.
 
 Resumo Técnico
+
 DTO (Data Transfer Object): Utilizado para definir e validar a estrutura dos dados que trafegam entre o cliente e o servidor.
+
 Axios: Biblioteca para realizar requisições HTTP de forma simplificada, utilizada no frontend para comunicação com o backend.
+
 CORS: Configurado no backend para permitir que o frontend, hospedado em uma origem diferente, se comunique com o servidor.
+
 Prisma ORM: Ferramenta para interagir com o banco de dados MySQL, simplificando as operações de persistência de dados.
+
 Docker: Utilizado para contêinerizar a aplicação, facilitando a implantação e o gerenciamento de dependências.
+
 Como Testar
+
 Clone os Repositórios dentro do mesmo diretório:
 
 Frontend: git clone https://github.com/tuzolanacalueto/corelab-web-challenge
 Backend: git clone https://github.com/tuzolanacalueto/corelab-api-challenge
+
 Dentro do diretório em que se clonou, deve-se colar o arquivo docker-compose.yml (que se encontra dentro do diretório do frontend):
 
 root/
