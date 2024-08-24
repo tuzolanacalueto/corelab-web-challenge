@@ -6,6 +6,21 @@ O que é NestJS?
 NestJS é um framework para a construção de aplicativos do lado do servidor Node.js eficientes e escaláveis. Ele é construído com TypeScript e utiliza conceitos do Angular, como injeção de dependência, para promover um desenvolvimento modular e testável. Ele é projetado para ser altamente extensível e incorpora vários padrões como Model-View-Controller (MVC).
 
 #Estrutura do Backend
+src/
+│   prisma
+│   ├── prisma.module.ts
+│   ├── prisma.service.ts
+│   todo
+│   ├── dto
+│       ├── create-todo.dto.ts
+│       ├── update-todo.dto.ts
+├── todo.controller.ts
+├── todo.module.ts
+├── todo.service.ts
+│   app.module.ts
+│   main.ts
+
+
 O backend foi implementado utilizando NestJS, com o seguinte fluxo básico:
 
 Controller: Os controllers recebem as requisições HTTP e delegam a lógica de negócios para os serviços. No projeto, temos controllers que gerenciam as tarefas (to-dos) e lidam com as operações CRUD.
@@ -23,6 +38,29 @@ O que é React?
 React é uma biblioteca JavaScript para a construção de interfaces de usuário. Ele é baseado em componentes, permitindo a criação de interfaces complexas através da composição de componentes simples e reutilizáveis. React também é conhecido por seu uso eficiente do DOM virtual, o que melhora o desempenho das aplicações.
 
 #Estrutura do Frontend
+src/
+│   api
+│   ├── axios.js
+├── assets/
+│   └── icons/              # Diretório para ícones usados nas notas
+├── components/
+│   ├── Header.js           # Componente para o cabeçalho
+│   ├── Note.js             # Componente para cada nota
+│   ├── NoteForm.js         # Componente para adicionar notas
+│   ├── NoteList.js         # Componente para listar notas
+├── services/
+│   ├── todo/
+│       ├── index.js
+│   ├── index.js
+├── styles/
+│   ├── App.css             # Estilos globais
+│   ├── Header.css          # Estilos do cabeçalho
+│   ├── Note.css            # Estilos das notas
+│   ├── NoteForm.css        # Estilos do formulário de notas
+│   ├── NoteList.css        # Estilos da lista de notas
+├── App.js                  # Componente principal
+├── index.js                # Arquivo de entrada principal
+
 O frontend foi desenvolvido em React, seguindo os princípios da componentização e separação de preocupações:
 
 Componentes: A interface de usuário foi dividida em componentes reutilizáveis, como Header, Note, ColorPicker, entre outros. Cada componente é responsável por uma parte específica da UI, tornando o código mais modular e fácil de manter.
@@ -58,7 +96,18 @@ Docker: Utilizado para contêinerizar a aplicação, facilitando a implantação
 Front: git clone https://github.com/tuzolanacalueto/corelab-web-challenge
 Back:  git clone https://github.com/tuzolanacalueto/corelab-api-challenge
 
-2. Dentro do diretorio em que se clonou, deve colar o file docker-compose.yml(se encontra dentro do diretorio do frontend)  
+2. Dentro do diretorio em que se clonou, deve colar o file docker-compose.yml(se encontra dentro do diretorio do frontend):
+
+root
+│
+├── frontend (React)
+│   └── Dockerfile
+│
+├── backend (NestJS)
+│   └── Dockerfile
+│
+└── docker-compose.yml
+
 
 3. Build e Start dos Contêineres:
 docker-compose up --build
@@ -67,4 +116,6 @@ docker-compose up --build
 
 Frontend: Acesse http://localhost:3000
 Backend: Acesse http://localhost:3333
+
+
 
