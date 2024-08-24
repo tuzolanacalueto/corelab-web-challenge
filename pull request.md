@@ -1,25 +1,28 @@
-#Descrição
+# Descrição
+
 Este Pull Request implementa uma aplicação web completa de gerenciamento de listas de tarefas (to-do lists) utilizando NestJS no backend e React no frontend. A aplicação permite a criação, leitura, atualização e exclusão de tarefas, bem como a marcação de tarefas como favoritas, definição de cores para cada tarefa, e exibição responsiva e visualmente atraente no frontend. O projeto é contêinerizado utilizando Docker para facilitar a implantação e o gerenciamento de dependências.
 
-#Backend - NestJS
-O que é NestJS?
+# Backend - NestJS
+
+**O que é NestJS?**  
 NestJS é um framework para a construção de aplicativos do lado do servidor Node.js eficientes e escaláveis. Ele é construído com TypeScript e utiliza conceitos do Angular, como injeção de dependência, para promover um desenvolvimento modular e testável. Ele é projetado para ser altamente extensível e incorpora vários padrões como Model-View-Controller (MVC).
 
-#Estrutura do Backend
+## Estrutura do Backend
+
+```text
 src/
-│   prisma
+│   prisma/
 │   ├── prisma.module.ts
 │   ├── prisma.service.ts
-│   todo
-│   ├── dto
-│       ├── create-todo.dto.ts
-│       ├── update-todo.dto.ts
-├── todo.controller.ts
-├── todo.module.ts
-├── todo.service.ts
+│   todo/
+│   ├── dto/
+│   │   ├── create-todo.dto.ts
+│   │   ├── update-todo.dto.ts
+│   ├── todo.controller.ts
+│   ├── todo.module.ts
+│   ├── todo.service.ts
 │   app.module.ts
 │   main.ts
-
 
 O backend foi implementado utilizando NestJS, com o seguinte fluxo básico:
 
@@ -33,33 +36,34 @@ Prisma ORM: Prisma foi utilizado para interagir com o banco de dados MySQL, forn
 
 CORS (Cross-Origin Resource Sharing): CORS foi configurado para permitir que o frontend, hospedado em uma origem diferente, possa se comunicar com o backend sem problemas. Isso é essencial para o funcionamento da aplicação em ambientes onde o frontend e o backend estão em servidores distintos.
 
-#Frontend - React
+Frontend - React
 O que é React?
 React é uma biblioteca JavaScript para a construção de interfaces de usuário. Ele é baseado em componentes, permitindo a criação de interfaces complexas através da composição de componentes simples e reutilizáveis. React também é conhecido por seu uso eficiente do DOM virtual, o que melhora o desempenho das aplicações.
 
-#Estrutura do Frontend
+Estrutura do Frontend
+
 src/
-│   api
+│   api/
 │   ├── axios.js
-├── assets/
+│   assets/
 │   └── icons/              # Diretório para ícones usados nas notas
-├── components/
+│   components/
 │   ├── Header.js           # Componente para o cabeçalho
 │   ├── Note.js             # Componente para cada nota
 │   ├── NoteForm.js         # Componente para adicionar notas
 │   ├── NoteList.js         # Componente para listar notas
-├── services/
+│   services/
 │   ├── todo/
-│       ├── index.js
+│   │   ├── index.js
 │   ├── index.js
-├── styles/
+│   styles/
 │   ├── App.css             # Estilos globais
 │   ├── Header.css          # Estilos do cabeçalho
 │   ├── Note.css            # Estilos das notas
 │   ├── NoteForm.css        # Estilos do formulário de notas
 │   ├── NoteList.css        # Estilos da lista de notas
-├── App.js                  # Componente principal
-├── index.js                # Arquivo de entrada principal
+│   App.js                  # Componente principal
+│   index.js                # Arquivo de entrada principal
 
 O frontend foi desenvolvido em React, seguindo os princípios da componentização e separação de preocupações:
 
@@ -71,34 +75,31 @@ Axios: Axios foi utilizado para realizar requisições HTTP ao backend. Ele é u
 
 Responsividade: A aplicação foi projetada para ser totalmente responsiva, utilizando CSS puro para garantir que funcione bem em dispositivos de diferentes tamanhos.
 
-#Docker
+Docker
 O que é Docker?
 Docker é uma plataforma que permite a criação, implantação e execução de aplicações em contêineres. Um contêiner é uma unidade de software que empacota o código da aplicação junto com todas as suas dependências, garantindo que ela funcione de forma consistente em qualquer ambiente.
 
-#Docker no Projeto
+Docker no Projeto
 No projeto, Docker foi utilizado para criar contêineres tanto para o backend quanto para o frontend. Os contêineres são definidos em arquivos Dockerfile, que especificam as dependências necessárias, comandos de construção e portas a serem expostas.
 
 Backend: Um contêiner Docker foi configurado para rodar a aplicação NestJS, expondo as portas necessárias para a comunicação com o frontend.
 
 Frontend: Outro contêiner Docker foi configurado para rodar a aplicação React, garantindo que a UI seja servida em um ambiente isolado e consistente.
 
-#Resumo Técnico
+Resumo Técnico
 DTO (Data Transfer Object): Utilizado para definir e validar a estrutura dos dados que trafegam entre o cliente e o servidor.
 Axios: Biblioteca para realizar requisições HTTP de forma simplificada, utilizada no frontend para comunicação com o backend.
 CORS: Configurado no backend para permitir que o frontend, hospedado em uma origem diferente, se comunique com o servidor.
 Prisma ORM: Ferramenta para interagir com o banco de dados MySQL, simplificando as operações de persistência de dados.
 Docker: Utilizado para contêinerizar a aplicação, facilitando a implantação e o gerenciamento de dependências.
+Como Testar
+Clone os Repositórios dentro do mesmo diretório:
 
-#Como Testar
+Frontend: git clone https://github.com/tuzolanacalueto/corelab-web-challenge
+Backend: git clone https://github.com/tuzolanacalueto/corelab-api-challenge
+Dentro do diretório em que se clonou, deve-se colar o arquivo docker-compose.yml (que se encontra dentro do diretório do frontend):
 
-1. Clone os Repositórios dentro do mesmo diretorio:
-
-Front: git clone https://github.com/tuzolanacalueto/corelab-web-challenge
-Back:  git clone https://github.com/tuzolanacalueto/corelab-api-challenge
-
-2. Dentro do diretorio em que se clonou, deve colar o file docker-compose.yml(se encontra dentro do diretorio do frontend):
-
-root
+root/
 │
 ├── frontend (React)
 │   └── Dockerfile
@@ -108,14 +109,10 @@ root
 │
 └── docker-compose.yml
 
-
-3. Build e Start dos Contêineres:
+Build e Start dos Contêineres:
 docker-compose up --build
 
-4. Acesso:
+Acesso:
 
 Frontend: Acesse http://localhost:3000
 Backend: Acesse http://localhost:3333
-
-
-
